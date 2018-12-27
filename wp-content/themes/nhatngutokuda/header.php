@@ -25,50 +25,33 @@
     <div class="container">
         <div class="row">
 
-            <div class="logo col-md-2">
+            <div class="logo logo-pc col-md-2 ">
                 <a href="/"><img  src="<?php echo IMG_URL.'/logo.jpg' ?>" alt="this is logo of page !"></a>
             </div>
-
-            <div class="col-md-10 static">
+            <div class="logo logo-mobile ">
+                <a href="/"><img  src="<?php echo IMG_URL.'/logo.jpg' ?>" alt="this is logo of page !"></a>
+            </div>
+            <div class="col-md-10 main-menu-pc">
                 <?php wp_nav_menu( array(
                     'theme_location' => 'primary',  
                     'container' => 'nav', 
                     'container_class' => 'primary',  
                     'menu_class' =>'menu clearfix' 
                 ) ) ?>
-                <!-- <nav class="primary">
-                    <ul>
-                        <li><a>Trang chủ</a></li>
-                        <li >
-                            <a>Giới thiệu</a>
-                            <ul class="sub-menu">
-                                <li><a>Liên hệ</a></li>
-                            </ul>
-                        </li>
-                        <li ><a>Khóa học</a>
-                            <ul class="sub-menu">
-                                <li><a>Khóa học N3</a></li>
-                                <li><a>Khóa học N4</a></li>
-                                <li><a>Khóa học N5</a></li>
-                                <li><a>Khóa học N2</a></li>
-                            </ul>
-                        </li>
-                        <li ><a>Tiếng nhật online</a>
-                            <ul class="sub-menu">
-                                <li><a>Kiến thức tiếng nhật</a></li>
-                                <li><a>Từ Vựng</a></li>
-                            </ul>
-                        </li>
-                        <li ><a>Tài liệu</a>
-                            <ul class="sub-menu">
-                                <li><a>Giao tiếp</a></li>
-                                <li><a>Kanji</a></li>
-                            </ul>
-                        </li>
-                        <li><a>Du học nhật</a></li>
-                        <li><a>Tin tức</a></li>
-                    </ul>
-                </nav> -->
+            </div>
+            <div class="main-menu-mobile active-menu">
+                <div class="icon">
+                    <span class="submenu"></span>
+                    <span class="submenu"></span>
+                    <span class="submenu"></span>
+                    <span class="submenu"></span>
+                </div>
+                <?php wp_nav_menu( array(
+                    'theme_location' => 'primary',  
+                    'container' => 'nav', 
+                    'container_class' => 'primary',  
+                    'menu_class' =>'menu clearfix' 
+                ) ) ?>
             </div>
         </div>       
     </div>

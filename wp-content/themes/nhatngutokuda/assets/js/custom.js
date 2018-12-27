@@ -17,5 +17,9 @@ $(function(){
     $(document).on('click','.backTop-active',function(){
         window.scrollTo(0,0);
     });
+
+    $('.icon').on('click',function(){
+        
+    });
 });
 

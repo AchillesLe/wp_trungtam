@@ -139,7 +139,7 @@ define('IMG_URL', THEME_URL.'/assets/imgs' );
             'Page Title', 
             'Slide Header', 
             'edit_posts', 
-            'menu_slug', 
+            'slide', 
             'page_slide', 
             'dashicons-images-alt2'
            );
@@ -147,7 +147,14 @@ define('IMG_URL', THEME_URL.'/assets/imgs' );
 
     function page_slide(){
         global $wpdb;
-        $slides = $wpdb->get_results( "SELECT * FROM slides ORDER BY id DESC", OBJECT  );
+       
+        $limit = 5;
+        $total_row = intval( ( $wpdb->get_results( "SELECT count(*) as total FROM slides"  ) )[0]->total );
+        $total_pages =  ceil( $total_row/$limit );
+        $paged = isset($_GET['paged']) ? $_GET['paged'] : 1; 
+        $offset = $paged > 1 ? ( $paged - 1 ) * $limit : 0;
+        $slides = $wpdb->get_results( "SELECT * FROM slides ORDER BY id DESC LIMIT   $offset , $limit", OBJECT  );
+
         $html = "";
         $html.= "<div class='title' ><h1>Danh sách slide</h1></div>";
         $html.= "<div class='message' > </div>";
@@ -175,8 +182,18 @@ define('IMG_URL', THEME_URL.'/assets/imgs' );
                     $index++;
                 }
                   
-        $html.=  "</tbody>
-            </table></div>";
+        $html.=  "</tbody></table>";
+        $html.= '<nav class="pagination">';
+        $html.= paginate_links(array(
+                    'base' => get_pagenum_link(1) . '%_%',
+                    'format' => '&paged=%#%',
+                    'current' => $paged,
+                    'total' => $total_pages,
+                    'prev_text'    => __('« prev'),
+                    'next_text'    => __('next »'),
+                ));
+        $html.='</nav>';
+        $html.=  "</div>";
         $modal = "";
         $modal .= '<div class="modal fade" id="edit_modal" role="dialog">
         <div class="modal-dialog">

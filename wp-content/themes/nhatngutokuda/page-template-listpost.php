@@ -7,7 +7,7 @@
  * @since NN_Tokuda 1.0
  */?>
 <?php get_header(); ?>
-<div class="container">
+<div class="container main">
         <div class="row">
             <div class="col-md-8 content-listpost">
             <?php   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; $args = array( 'posts_per_page' => 5 , 'post_type'=>'post', 'post_status'=>'publish' , 'paged'=>$paged ); $postslist = new WP_Query( $args ); ?>
@@ -17,7 +17,7 @@
                     
                    <?php while( $postslist->have_posts() ) :$postslist->the_post(); ?>
                            
-                            <div class="item col-md-6">
+                            <div class="item col-md-6 col-sm-6">
                                 <a href="<?php echo get_permalink( ) ?>" title="<?php echo esc_attr( the_title() ) ;?>">
                                     <div class="img">
                                         <?php echo get_the_post_thumbnail( );?>

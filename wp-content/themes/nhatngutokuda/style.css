@@ -38,6 +38,12 @@ header .logo img{
     width: 90px;
     height: auto;
 }
+.main-menu-mobile{
+    display: none;
+}
+.logo-mobile{
+    display: none;
+}
 li a:hover{
     text-decoration: none;
 }
@@ -241,7 +247,9 @@ footer{
     width: auto;
 }
  
-
+.main{
+    margin-top: 30px;
+}
 .sidebar-right .item-sidebar{
     padding: 0 15px;
     border-left: 1px solid #cac9c9;
@@ -285,9 +293,8 @@ footer{
 }
 
 .content-listpost{
-    margin: 50px 0px;
+    margin-top: 15px;
     min-height: 500px;
-   
 }
 
 .content-listpost  .item  {
@@ -358,4 +365,56 @@ main.site-main{
 .entry-img img{
     width: 100%;
     height: auto;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+       font-size: 12px;
+    }
+    .logo-pc{
+        display: none;
+    }
+    .logo-mobile{
+        display: block;
+    }
+    .logo-mobile > a > img{
+        width: 50px;
+        height: auto;
+    }
+    .main-menu-pc{
+        display: none;
+    }
+    .main-menu-mobile{
+        display: block;
+    }
+
+    .icon{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: #b3b6b6;
+    }
+    .submenu::after{
+        content: "";
+        display: block;
+        width: 30px;
+        height: 2px;
+        background-color: #000;
+        margin-top: 3px;
+    }
+    .main-menu-mobile nav{
+        z-index: 999;
+        width: 100%;
+        top:40px;
+        background-color: #b3b6b6;
+    } 
+    .main-menu-mobile nav ul{
+       margin-left: 10%;
+    } 
+    .main-menu-mobile nav ul li{
+       display: block;
+       margin:0;
+       padding: 10px 0;
+    } 
+
 }
