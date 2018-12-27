@@ -1,0 +1,361 @@
+/*!	
+Theme Name: Nhật ngữ Tokuda	
+Theme URI: https://wpcustomify.com	
+Author: Achilles	
+Author URI: https://wpcustomify.com/about	
+Description: Customify is fast, lightweight, responsive and super flexible multipurpose theme built with SEO, speed, and usability in mind. Unleash the power of your imagination with a true WYSIWYG Header & Footer builder (inside the WordPress Customizer) built exclusively for this theme. The theme works great with any of your favorite page builder likes Elementor, Beaver Builder, SiteOrigin, Thrive Architect, Divi, Visual Composer, etc. Combined with the Header & Footer builder, you can build any type of websites like shop, business agencies, corporate, portfolio, education, university portal, consulting, church, restaurant, medical and so on. Customify is compatible with all well-coded plugins, including major ones like WooCommerce, OrbitFox, Yoast, BuddyPress, bbPress, etc. Learn more about the theme and ready to import demo sites at https://wpcustomify.com	
+Version: 0.2.7	
+License: GNU General Public License v2 or later	
+License URI: http://www.gnu.org/licenses/gpl-2.0.html	
+Text Domain: trungtam	
+======	
+*/
+.body{
+    margin:0;
+    padding: 0;
+    font:  sans-serif;
+    font-size: 16px;
+    width: 100%;
+}
+ul{
+    list-style: none;
+}
+.xx{
+    height: 1500px;
+    border: 1px solid #ccc;
+    background: #ccc;
+}
+header{
+    margin: 0;
+    padding: 0;
+    background: #fff;
+}
+
+header .logo{
+
+}
+header .logo img{
+    width: 90px;
+    height: auto;
+}
+li a:hover{
+    text-decoration: none;
+}
+nav li{
+    cursor: pointer;
+}
+
+
+/* .main-nav {
+    display: inline-block;
+    vertical-align: middle;
+}
+.main-nav > ul {
+    margin-bottom: 0px;
+}
+.main-nav > ul > li {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    margin-right: 35px; 
+}
+
+.main-nav > ul > li > a {
+    display: block;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    padding: 30px 0; 
+} */
+/* .main-nav > ul > li > a:not(:last-child):after {
+    font-family: "FontAwesome";
+    content: "";
+    position: absolute;
+    right: -14px; 
+} */
+/* .main-nav > ul > li:hover > a, .main-nav > ul > li.active > a {
+    color: #10afc0;
+}
+.main-nav li {
+    position: relative;
+    text-align: left; 
+}
+.main-nav li ul {
+    position: absolute;
+    min-width: 280px;
+    transition: all 0.2s ease-in-out;
+    z-index: 1;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    pointer-events: none;
+    opacity: 0;
+    border-top: solid 3px #10afc0;
+    background: #fff;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.16); 
+}
+.main-nav li ul li{
+    margin-left: -38px;
+}
+.main-nav li ul a {
+    display: block;
+    color: #4e4e4e;
+    font-size: 16px;
+    padding: 9px 22px;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.1); 
+}
+.main-nav li ul li:hover > a {
+    color: #10afc0; 
+}
+.main-nav li:hover > ul {
+    margin-top: 0;
+    pointer-events: all;
+    opacity: 1; 
+} */
+
+nav.primary>ul{
+    margin-bottom: 0px;
+}
+
+nav.primary>ul>li{
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: middle;
+    padding: 30px 0;
+}
+
+nav.primary>ul>li.menu-item-has-children > a::after  {
+    font-family:"Font Awesome 5 Free";
+    content: "\f0d7";
+}
+nav.primary>ul>li>a{
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+nav.primary>ul>li>ul{
+    visibility: hidden;
+    position: absolute;
+    margin-top: 40px;
+    background: #fff;
+    border-top: solid 3px #10afc0;
+    min-width: 250px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.16); 
+}
+nav.primary>ul>li>ul>li{
+   border-bottom: 1px solid #ccc;
+   margin-left: -39px;
+   padding: 20px 0;
+
+}
+nav.primary>ul>li>ul>li>a{
+    margin-left: 20px;
+ 
+}
+nav.primary>ul>li:hover > ul{
+    visibility: visible;
+    margin-top: 30px;
+    opacity: 1;
+    pointer-events: all;
+    z-index: 999;
+
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    opacity: 0.95;
+}
+.sticky a{
+    opacity:1;
+}
+session  .box{
+    overflow: hidden;
+    widows: 100%;
+}
+.box  img{
+
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+ol.carousel-indicators li{
+    width: 50px;
+    height: 8px;
+    background:#10afc0;
+    border-radius: 0;
+}
+ol.carousel-indicators li.active{
+    width: 50px;
+    height: 8px;
+    background: #fff;
+    border-radius: 0;
+}
+#backTop{
+    display: none;
+}
+.backTop-active{
+    display: block!important;
+    position: fixed!important;
+    bottom: 30px!important;
+    right: 30px!important;
+}
+
+footer{
+    color: #fff;
+}
+.item-1{
+    text-align: left;
+}
+.item-2{
+    text-align: center;
+}
+.item-3{
+    text-align: right;
+}
+
+.copyright{
+    text-align: left;
+    font-style: italic;
+    font-size: 15px;
+}
+.creator{
+    text-align: right;
+    font-style: italic;
+    font-size: 15px;
+}
+.first{
+    padding :40px 0;
+    background-color: #10afc0;
+}
+.end{
+    background: #0f9ead;
+    padding: 20px;
+}
+.content-item iframe{
+    height: 170px;
+    width: auto;
+}
+.content-item .fb_iframe_widget{
+    height: 170px;
+    width: auto;
+}
+ 
+
+.sidebar-right .item-sidebar{
+    padding: 0 15px;
+    border-left: 1px solid #cac9c9;
+    margin-bottom: 20px;
+}
+
+.sidebar-right .item-sidebar::before {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 70px;
+    background-color: #0f9ead;
+    left: 15px;
+}
+.sidebar-right .item-sidebar .title h3{
+    margin-bottom: 20px;
+    margin-top: 0px;
+    font-size: 18px;
+}
+.sidebar-right .item-sidebar .title::after{
+    display: block;
+    content: "";
+    width: 70px;
+    height: 1px;
+    background-color: #000;
+}
+
+.sidebar-right .item-sidebar .content{
+    margin-top: 15px;
+}
+
+.sidebar-right .item-sidebar .content .item-post{
+    font-size: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ebe8e8;
+}
+
+.sidebar-right .item-sidebar .content .item-post:last-child{
+    border-bottom:none;
+}
+
+.content-listpost{
+    margin: 50px 0px;
+    min-height: 500px;
+   
+}
+
+.content-listpost  .item  {
+    padding: 10px 20px;
+    color: #000; 
+    transition: all 0.2s ease-in-out;
+}
+.content-listpost  .item:hover  {
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
+}
+.content-listpost  .item:hover a {
+    text-decoration: none;
+}
+
+.content-listpost .item img{
+    width: 100%;
+    height: auto;
+}
+
+.content-listpost  .item   .content-item{
+    color: #000; 
+    margin-top: 30px;
+}
+
+
+.content-listpost  .item  .content-item .title{
+    font-size: 17px;
+    text-transform: uppercase;
+}
+.content-listpost  .item  .content-item .body{
+    font-size: 13px;
+}
+.content-listpost .item  .content-item:hover{
+   text-decoration: none!important;
+}
+.content-listpost .item:hover .content-item{
+    margin-left: 10px;
+}
+.content-listpost .item:hover img{
+
+    transform: scale(1.05);
+}
+.area-pagination{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+nav.pagination .page-numbers{
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+article{
+    overflow: auto;
+}
+main.site-main{
+    padding: 50px 0;
+}
+.entry-title{
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.entry-publish , .entry-img{
+    margin-bottom: 20px;
+}
+
+.entry-img img{
+    width: 100%;
+    height: auto;
+}

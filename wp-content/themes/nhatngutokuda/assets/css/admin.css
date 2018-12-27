@@ -1,0 +1,86 @@
+
+.title h1{
+    font-style: oblique;
+    margin: 20px 0 50px 0;
+    margin-left: 40%;
+    font-size: 50px;
+}
+.title h1::after{
+    content: "";
+    display: block;
+    width: 350px;
+    height: 2px;
+    background-color: #29868a;
+    margin-top: 30px;
+}
+.page-slide-content{
+    padding: 0 10% 50px;
+    margin-bottom: 20px;
+    
+}
+.page-slide-content::after{
+    content: "";
+    display: block;
+    widows: 80%;
+    margin-top: 100px;
+    height: 2px;
+    background-color: #29868a;
+}
+/* table */
+.tbl-slide .thead-dark{
+    background-color: #29868a;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 300;
+}
+.tbl-slide .thead-dark th{
+   text-align: center;
+}
+.tbl-slide .thead-dark th:nth-child(1){
+    width: 5%;
+}
+.tbl-slide .thead-dark th:nth-child(2){
+    width: 50%;
+}
+.tbl-slide .thead-dark th:nth-child(3){
+    width: 13%; 
+}
+.tbl-slide .thead-dark th:nth-child(4){
+    width: 12%; 
+}
+.tbl-slide td{
+    text-align: center;
+    vertical-align : middle!important;
+}
+.tbl-slide td.action button{
+    margin: 0 0 0 10%;
+}
+
+.tbl-slide td img{
+    overflow: hidden;
+    background-size: cover;
+    max-height: 400px;
+    width: 100%;
+}
+
+.add-slide{
+    padding: 0 10%;
+}
+.add-slide .btn-add-slide{
+   float: right;
+   margin:0 20px 20px 0 ;
+}
+
+#edit_modal{
+    margin-top: 5%;
+}
+#edit_modal > .modal-dialog > .modal-content > .modal-header > .modal-title{
+    text-align: center;
+    font-size: 20px;
+    font-style: oblique;
+}
+.message{
+    font-size: 18px;
+    font-style: italic;
+    
+}
