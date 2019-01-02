@@ -8,9 +8,10 @@
 
     <link rel="stylesheet" type="text/css" href="<?php echo CSS_URL.'/bootstrap.min.css' ?>" />
     <link rel="stylesheet" type="text/css" href="<?php echo CSS_URL.'/fontawesome/css/all.css' ?>" />
+    <script src="<?php echo JS_URL.'/sdk.js' ?>" ></script>
    
     <?php wp_head(); ?>
-    <div id="fb-root"></div>
+    <!-- <div id="fb-root"></div> -->
     <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
@@ -23,12 +24,9 @@
 
 <header id="top">
     <div class="container">
-        <div class="row">
+        <div class="row menu">
 
-            <div class="logo logo-pc col-md-2 ">
-                <a href="/"><img  src="<?php echo IMG_URL.'/logo.jpg' ?>" alt="this is logo of page !"></a>
-            </div>
-            <div class="logo logo-mobile ">
+            <div class="logo col-md-2 ">
                 <a href="/"><img  src="<?php echo IMG_URL.'/logo.jpg' ?>" alt="this is logo of page !"></a>
             </div>
             <div class="col-md-10 main-menu-pc">
@@ -39,13 +37,13 @@
                     'menu_class' =>'menu clearfix' 
                 ) ) ?>
             </div>
-            <div class="main-menu-mobile active-menu">
-                <div class="icon">
-                    <span class="submenu"></span>
-                    <span class="submenu"></span>
-                    <span class="submenu"></span>
-                    <span class="submenu"></span>
-                </div>
+            <div class="icon">
+                <span class="submenu"></span>
+                <span class="submenu"></span>
+                <span class="submenu"></span>
+                <span class="submenu"></span>
+            </div>
+            <div class="main-menu-mobile ">    
                 <?php wp_nav_menu( array(
                     'theme_location' => 'primary',  
                     'container' => 'nav', 

@@ -147,13 +147,7 @@ define('IMG_URL', THEME_URL.'/assets/imgs' );
 
     function page_slide(){
         global $wpdb;
-       
-        $limit = 5;
-        $total_row = intval( ( $wpdb->get_results( "SELECT count(*) as total FROM slides"  ) )[0]->total );
-        $total_pages =  ceil( $total_row/$limit );
-        $paged = isset($_GET['paged']) ? $_GET['paged'] : 1; 
-        $offset = $paged > 1 ? ( $paged - 1 ) * $limit : 0;
-        $slides = $wpdb->get_results( "SELECT * FROM slides ORDER BY id DESC LIMIT   $offset , $limit", OBJECT  );
+        $table_name = 'slides';
 
         $html = "";
         $html.= "<div class='title' ><h1>Danh sách slide</h1></div>";
@@ -170,18 +164,30 @@ define('IMG_URL', THEME_URL.'/assets/imgs' );
                     </tr>
                 </thead>
                 <tbody>";
-                $index = 1;
-                foreach(  $slides as $slide ){
-                    $html.= "<tr>
-                        <td>$index</td>
-                        <td><img src='$slide->url' alt='$slide->alt' /></td>
-                        <td>$slide->alt</td>
-                        <td>$slide->updated_date</td>
-                        <td class='action' data-id='$slide->id' data-id_img='$slide->id_img' data-img='$slide->description' data-url='$slide->url' data-alt='$slide->alt'> <button  class='btn btn-warning btn-edit-slide' data-toggle='modal'  ><i class='far fa-edit'></i>&nbsp;&nbsp;Sửa</button> <button  class='btn btn-danger btn-delete-slide' ><i class='far fa-trash-alt'></i>&nbsp;&nbsp;Xóa</button></td>
-                    </tr> ";
-                    $index++;
+                $limit = 5;
+                $result = $wpdb->get_results( "SELECT count(*) as total FROM  $table_name ");
+                $total_row =  $result != null ? intval( ( $result )[0]->total ) : 0;
+                $total_pages =  ceil( $total_row/$limit );
+                $paged = isset($_GET['paged']) ? $_GET['paged'] : 1; 
+                $offset = $paged > 1 ? ( $paged - 1 ) * $limit : 0;
+                $slides = $wpdb->get_results( "SELECT * FROM $table_name  ORDER BY id DESC LIMIT   $offset , $limit", OBJECT  );
+
+                if( $slides != null && count($slides) > 0 ){
+                    $index = 1;
+                    foreach(  $slides as $slide ){
+                        $html.= "<tr>
+                            <td>$index</td>
+                            <td><img src='$slide->url' alt='$slide->alt' /></td>
+                            <td>$slide->alt</td>
+                            <td>$slide->updated_date</td>
+                            <td class='action' data-id='$slide->id' data-id_img='$slide->id_img' data-img='$slide->description' data-url='$slide->url' data-alt='$slide->alt'> <button  class='btn btn-warning btn-edit-slide' data-toggle='modal'  ><i class='far fa-edit'></i>&nbsp;&nbsp;Sửa</button> <button  class='btn btn-danger btn-delete-slide' ><i class='far fa-trash-alt'></i>&nbsp;&nbsp;Xóa</button></td>
+                        </tr> ";
+                        $index++;
+                    }
+                }else{
+                    $html.= "<tr><td colspan='5'><h1>No Slide !</h1></td></tr>";
                 }
-                  
+                       
         $html.=  "</tbody></table>";
         $html.= '<nav class="pagination">';
         $html.= paginate_links(array(
@@ -243,8 +249,10 @@ define('IMG_URL', THEME_URL.'/assets/imgs' );
             date_default_timezone_set("Asia/Ho_Chi_Minh"); 
             $date = date('Y-m-d H:i:s');
             global $wpdb;
+            $table_name = 'slides';
+
             if( intval ($id ) > 0 ){
-                $query = " UPDATE slides SET id_img = '$id_img' ,  url = '$url' , alt='$alt' , description='$privew_img' , updated_date = '$date' WHERE id='$id' ";
+                $query = " UPDATE $table_name SET id_img = '$id_img' ,  url = '$url' , alt='$alt' , description='$privew_img' , updated_date = '$date' WHERE id='$id' ";
                 $result = $wpdb->query( $query );
                 if( $result ){
                     wp_send_json_success( );
@@ -254,8 +262,24 @@ define('IMG_URL', THEME_URL.'/assets/imgs' );
                     die();
                 }
             }else {
-               
-                $query = " INSERT INTO slides ( id_img , url , alt , description , updated_date )  VALUES ( '$id_img' , '$url' , ' $alt' , '$privew_img', '$date' )  ";
+
+                if( $wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name ) {
+                    $charset_collate = $wpdb->get_charset_collate();
+ 
+                    $sql = "CREATE TABLE $table_name (
+                        id int(11) NOT NULL AUTO_INCREMENT,
+                        id_img int(11) NOT NULL,
+                        url text NOT NULL,
+                        alt varchar(255) ,
+                        description text NOT NULL,
+                        updated_date datetime ,
+                        UNIQUE KEY id (id)
+                    ) $charset_collate";
+                    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+                    dbDelta( $sql );
+                }
+
+                $query = " INSERT INTO $table_name ( id_img , url , alt , description , updated_date )  VALUES ( '$id_img' , '$url' , ' $alt' , '$privew_img', '$date' )  ";
                 $result = $wpdb->query( $query );
                 if( $result ){
                     wp_send_json_success( );

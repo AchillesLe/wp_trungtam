@@ -19,6 +19,13 @@ $(function(){
     });
 
     $('.icon').on('click',function(){
+        // $viewport = $( window ).width();
+        let display =  $('.main-menu-mobile').css('display');
+        if(  display == 'none' ){
+            $('.main-menu-mobile').css('display','block');
+        }else{
+            $('.main-menu-mobile').css('display','none');
+        }
         
     });
 });

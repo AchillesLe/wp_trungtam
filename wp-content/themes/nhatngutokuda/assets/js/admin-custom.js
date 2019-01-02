@@ -143,6 +143,12 @@ $( document ).ready(function(){
                 setTimeout(function(){
                     window.location.href=window.location.href;
                 },1000);
+            }else{
+                $('.message').html('<div class="alert alert-danger">Xảy ra lỗi ! vui lòng kiểm tra lại .</div>');
+                window.scroll( 10 , 10)
+                setTimeout(function(){
+                    $('.message').html("");
+                },4000);
             }
         });
        
